@@ -1,9 +1,9 @@
 class ProfileResult {
-    constructor(url, title, responseCode, score) {
-        this.url = url;
-        this.title = title;
+    constructor(site, responseCode, score, error = null) {
+        this.site = site;
         this.response_code = responseCode;
         this.score = score;
+        this.error = error;
     }
 }
 

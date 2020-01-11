@@ -11,17 +11,31 @@ app.get("/profile", (req, res) => {
     let siteRepo = new SiteRepository();
     let profiler = new ProfileService();
 
-    let response = profiler.profileAll(siteRepo.getAll());
-  
-    res.send(
-        {
-            meta: {
-                code: 200,
-                results: response.length
-            },
-            data: response
-        }
-    );
+    profiler.profileAll(siteRepo.getAll())
+        .then((response) => {
+            res.send(
+                {
+                    meta: {
+                        code: 200,
+                        results: response.length
+                    },
+                    data: response
+                }
+            );
+        }).catch((error) => {
+            res.status(500);
+
+            res.send(
+                {
+                    meta: {
+                        code: 500,
+                    },
+                    data: {
+                        error: error
+                    }
+                }
+            );
+        });
 });
 
 app.listen(PORT, HOST, () => {
