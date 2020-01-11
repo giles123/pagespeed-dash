@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  app:
+    build: docker/app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "80:80"
