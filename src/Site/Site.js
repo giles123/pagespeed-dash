@@ -1,5 +1,6 @@
 class Site {
-    constructor(url) {
+    constructor(id, url) {
+        this.id = id;
         this.url = url;
     }
 }
