@@ -1,12 +1,15 @@
 const express = require("express");
+const Site = require("./src/Site");
 
 const PORT = 80;
 const HOST = '0.0.0.0';
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello from Node.js app \n");
+app.get("/profile", (req, res) => {
+    const site = new Site(req.query.url);
+  
+    res.send(site);
 });
 
 app.listen(PORT, HOST, () => {
