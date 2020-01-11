@@ -17,8 +17,8 @@ class ProfileResult {
 
     toJSON() {
         return {
-            title: this.#site.getTitle(),
-            url: this.#site.getURL(),
+            title: this.#site.title,
+            url: this.#site.url,
             response_code: this.#responseCode,
             score: this.#score,
             error: this.#error

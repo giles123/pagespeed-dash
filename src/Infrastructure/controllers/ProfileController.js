@@ -13,7 +13,27 @@ class ProfileController {
     }
     
     profileAll = (req, res) => {
-        this.#profiler.profileAll(this.#siteRepo.getAll())
+
+        this.#siteRepo.getAll().then((sites) => {
+            this.runProfile(sites, res);
+        }).catch((error) => {
+            res.status(500);
+
+            res.send(
+                {
+                    meta: {
+                        code: 500,
+                    },
+                    data: {
+                        error: error
+                    }
+                }
+            );
+        });
+    }
+
+    runProfile(sites, res) {
+        this.#profiler.profileAll(sites)
             .then((response) => {
                 res.send(
                     {
@@ -39,7 +59,6 @@ class ProfileController {
                 );
             });
     }
-
 }
 
 module.exports = ProfileController;

@@ -1,27 +1,14 @@
-class Site {
-    #id;
+const mongoose = require("mongoose");
 
-    #title;
-
-    #url;
-
-    constructor(id, title, url) {
-        this.#id = id;
-        this.#title = title;
-        this.#url = url;
+const siteSchema = new mongoose.Schema({
+    title: {
+        type: String
+    },
+    url: {
+        type: String
     }
+});
 
-    getID() {
-        return this.#id;
-    }
-
-    getTitle() {
-        return this.#title;
-    }
-
-    getURL() {
-        return this.#url;
-    }
-}
+const Site = mongoose.model("Site", siteSchema);
 
 module.exports = Site;
