@@ -1,5 +1,5 @@
 const express = require("express");
-const Site = require("./src/Site");
+const SiteRepository = require("./src/SiteRepository");
 
 const PORT = 80;
 const HOST = '0.0.0.0';
@@ -7,7 +7,8 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get("/profile", (req, res) => {
-    const site = new Site(req.query.url);
+    let siteRepo = new SiteRepository();
+    let site = siteRepo.findByURL(req.query.url);
   
     res.send(site);
 });
