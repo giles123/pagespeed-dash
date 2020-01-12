@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "pretest": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore .",
     "test": "cross-env NODE_ENV=test jest --forceExit --testTimeout=20000"
   },
   "keywords": [],

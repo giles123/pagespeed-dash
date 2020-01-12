@@ -1,3 +1,5 @@
+'use strict';
+
 const BaseController = require("./BaseController");
 
 class SiteController extends BaseController {

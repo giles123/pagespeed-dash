@@ -1,20 +1,22 @@
-const routes = require("express").Router();
-const SiteController = require("../controllers/SiteController");
-const ProfileController = require("../controllers/ProfileController");
-const APIAuthMiddleware = require("../middleware/APIAuthMiddleware");
-const SiteRepository = require(process.cwd()+"/src/Domain/Site/SiteRepository");
-const ProfileService = require(process.cwd()+"/src/Domain/Profile/ProfileService");
+'use strict';
 
-siteRepo = new SiteRepository();
-siteController = new SiteController(siteRepo);
-profileController = new ProfileController(siteRepo, new ProfileService());
-apiAuthMiddleware = new APIAuthMiddleware();
+const routes = require('express').Router();
+const SiteController = require('../controllers/SiteController');
+const ProfileController = require('../controllers/ProfileController');
+const APIAuthMiddleware = require('../middleware/APIAuthMiddleware');
+const SiteRepository = require(process.cwd() + '/src/Domain/Site/SiteRepository');
+const ProfileService = require(process.cwd() + '/src/Domain/Profile/ProfileService');
 
-routes.all("*", apiAuthMiddleware.validateKey);
+let siteRepo = new SiteRepository();
+let siteController = new SiteController(siteRepo);
+let profileController = new ProfileController(siteRepo, new ProfileService());
+let apiAuthMiddleware = new APIAuthMiddleware();
 
-routes.get("/sites", siteController.all);
+routes.all('*', apiAuthMiddleware.validateKey);
 
-routes.get("/profile", profileController.profileAll);
-routes.get("/profile/:siteId", profileController.profileSite);
+routes.get('/sites', siteController.all);
+
+routes.get('/profile', profileController.profileAll);
+routes.get('/profile/:siteId', profileController.profileSite);
 
 module.exports = routes;

@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
-const Site = require("../../Domain/Site/Site");
+'use strict';
 
-const connection = "mongodb://db:27017/speed-dash";
+const mongoose = require('mongoose');
+const Site = require('../../Domain/Site/Site');
+
+const connection = 'mongodb://db:27017/speed-dash';
 
 const connectDb = () => {
   return mongoose.connect(connection);
