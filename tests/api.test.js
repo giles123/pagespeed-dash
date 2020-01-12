@@ -1,5 +1,13 @@
 const request = require('supertest');
-const app = require('../app');
+
+beforeEach(() =>  {
+    appVars = require('../app');
+    app = appVars.app;
+    server = appVars.server;
+});
+afterEach(async() => {
+    await server.close();
+});
 
 describe("General API end-to-end tests", () => {
     it("should return 401 if API key is invalid", async () => {

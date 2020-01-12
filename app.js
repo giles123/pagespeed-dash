@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 app.use('/', routes);
 
-app.listen(PORT, HOST, () => {
+const server = app.listen(PORT, HOST, () => {
     connectDb();
 });
 
-module.exports = app;
+module.exports = {app: app, server: server};
