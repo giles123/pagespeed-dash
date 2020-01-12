@@ -15,7 +15,7 @@ class SiteController extends BaseController {
         this.#siteRepo.getAll().then((sites) => {
             this.successResponse(res, sites);
         }).catch((error) => {
-            this.errorResponse(res, error, 500);
+            this.errorResponse(res, error);
         });
     }
 }
