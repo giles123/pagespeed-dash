@@ -1,5 +1,3 @@
-const ProfileService = require(process.cwd()+"/src/Domain/Profile/ProfileService");
-const SiteRepository = require(process.cwd()+"/src/Domain/Site/SiteRepository");
 const BaseController = require("./BaseController");
 
 class ProfileController extends BaseController {
@@ -8,10 +6,10 @@ class ProfileController extends BaseController {
 
     #profiler;
 
-    constructor() {
+    constructor(siteRepository, profileService) {
         super();
-        this.#siteRepo = new SiteRepository();
-        this.#profiler = new ProfileService();
+        this.#siteRepo = siteRepository;
+        this.#profiler = profileService;
     }
     
     profileAll = (req, res) => {

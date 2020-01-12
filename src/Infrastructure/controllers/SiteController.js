@@ -1,13 +1,12 @@
-const SiteRepository = require(process.cwd()+"/src/Domain/Site/SiteRepository");
 const BaseController = require("./BaseController");
 
 class SiteController extends BaseController {
 
     #siteRepo;
 
-    constructor() {
+    constructor(siteRepository) {
         super();
-        this.#siteRepo = new SiteRepository();
+        this.#siteRepo = siteRepository;
     }
     
     all = (req, res) => {
