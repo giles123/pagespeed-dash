@@ -19,7 +19,7 @@ class ProfileController extends BaseController {
         this.#siteRepo.getAll().then((sites) => {
             this.runProfile(sites, res);
         }).catch((error) => {
-            this.errorResponse(res, error, 500);
+            this.errorResponse(res, error);
         });
     }
 
@@ -27,7 +27,7 @@ class ProfileController extends BaseController {
         this.#siteRepo.getByID(req.params.siteId).then((site) => {
             this.runProfile([site], res);
         }).catch((error) => {
-            this.errorResponse(res, error, 500);
+            this.errorResponse(res, error);
         });
     }
 
@@ -36,7 +36,7 @@ class ProfileController extends BaseController {
             .then((response) => {
                 this.successResponse(res, response);
             }).catch((error) => {
-                this.errorResponse(res, error, 500);
+                this.errorResponse(res, error);
             });
     }
 }

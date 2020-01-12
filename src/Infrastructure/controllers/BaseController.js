@@ -1,3 +1,4 @@
+
 class BaseController {
     successResponse(res, response) {
         res.send({
@@ -9,7 +10,9 @@ class BaseController {
         });
     }
 
-    errorResponse(res, error, code) {
+    errorResponse(res, error) {
+        console.log(error, typeof error);
+        let code = (typeof error === "string") ? 500 : error.getCode();
         res.status(code);
 
         res.send(
@@ -18,7 +21,7 @@ class BaseController {
                     code: code,
                 },
                 data: {
-                    error: error
+                    error: (typeof error === "string") ? error : error.message
                 }
             }
         );

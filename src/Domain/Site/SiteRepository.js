@@ -1,4 +1,5 @@
 const Site = require("./Site");
+const SiteNotFoundError = require("./SiteNotFoundError");
 
 class SiteRepository {
     async getAll() {
@@ -6,7 +7,11 @@ class SiteRepository {
     }
 
     async getByID(id) {
-        return await Site.findById(id);
+        try {
+            return await Site.findById(id);
+        } catch (error) {
+            throw new SiteNotFoundError(id);
+        }
     }
 }
 
