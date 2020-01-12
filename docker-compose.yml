@@ -6,6 +6,7 @@ services:
     working_dir: /usr/src/app
     environment:
       - API_KEY=6tToKq52dmvAIEPD1H4uToE9MxaAtJyg
+      - GOOGLE_API_KEY=AIzaSyCZwqCpR-sKkVJtbts-quNqpOTWg_QGQrI
     volumes:
       - .:/usr/src/app
     ports:
