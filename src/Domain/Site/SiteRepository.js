@@ -8,7 +8,13 @@ class SiteRepository {
 
     async getByID(id) {
         try {
-            return await Site.findById(id);
+            let site = await Site.findById(id);
+
+            if (site === null) {
+                throw new SiteNotFoundError(id);
+            }
+
+            return site;
         } catch (error) {
             throw new SiteNotFoundError(id);
         }
