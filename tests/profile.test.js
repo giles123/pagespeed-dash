@@ -1,12 +1,10 @@
-'use strict';
-
 const request = require('supertest');
 const SiteRepository = require('../src/Domain/Site/SiteRepository');
 
 beforeEach(() => {
-  var appVars = require('../app');
-  var app = appVars.app;
-  var server = appVars.server;
+  appVars = require('../app');
+  app = appVars.app;
+  server = appVars.server;
 });
 afterEach(async() => {
   await server.close();
