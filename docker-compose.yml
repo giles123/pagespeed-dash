@@ -4,6 +4,8 @@ services:
   app:
     build: docker/app
     working_dir: /usr/src/app
+    environment:
+      - API_KEY=6tToKq52dmvAIEPD1H4uToE9MxaAtJyg
     volumes:
       - .:/usr/src/app
     ports:
