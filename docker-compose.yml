@@ -15,5 +15,9 @@ services:
     - db
   db:
     image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: speed-dash
+    volumes:
+      - ./docker/db:/docker-entrypoint-initdb.d
     ports:
       - "27017:27017"
