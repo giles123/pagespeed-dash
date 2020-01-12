@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "da57c567-9948-411c-951d-a08ac45c1bb7",
+		"name": "Page Speed Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Sites",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}sites",
+					"host": [
+						"{{domain}}sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Site by ID",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}profile/5e1b373f0f549b62919a258d",
+					"host": [
+						"{{domain}}profile"
+					],
+					"path": [
+						"5e1b373f0f549b62919a258d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile All",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{api-key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-api-key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}profile",
+					"host": [
+						"{{domain}}profile"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
