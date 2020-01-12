@@ -3,7 +3,7 @@ const cors = require("cors");
 const routes = require('./src/Infrastructure/routes');
 const connectDb = require("./src/Infrastructure/config/connection");
 
-const PORT = 80;
+const PORT = process.env.NODE_ENV === "test" ? 8888 : 80;
 const HOST = '0.0.0.0';
 
 const app = express();
@@ -14,3 +14,5 @@ app.use('/', routes);
 app.listen(PORT, HOST, () => {
     connectDb();
 });
+
+module.exports = app;
