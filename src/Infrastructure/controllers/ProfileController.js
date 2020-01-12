@@ -23,6 +23,14 @@ class ProfileController extends BaseController {
         });
     }
 
+    profileSite = (req, res) => {
+        this.#siteRepo.getByID(req.params.siteId).then((site) => {
+            this.runProfile([site], res);
+        }).catch((error) => {
+            this.errorResponse(res, error, 500);
+        });
+    }
+
     runProfile(sites, res) {
         this.#profiler.profileAll(sites)
             .then((response) => {
