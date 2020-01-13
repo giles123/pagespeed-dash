@@ -1,6 +1,6 @@
 'use strict';
 
-const BaseController = require("./BaseController");
+const BaseController = require('./BaseController');
 
 class ProfileController extends BaseController {
 
