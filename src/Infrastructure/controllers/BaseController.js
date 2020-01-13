@@ -12,13 +12,13 @@ class BaseController {
   }
 
   errorResponse(res, error) {
-    let code = (typeof error === 'string') ? 500 : error.getCode();
+    const code = (typeof error === 'string') ? 500 : error.getCode();
     res.status(code);
 
     res.send(
       {
         meta: {
-          code: code,
+          code,
         },
         data: {
           error: (typeof error === 'string') ? error : error.message,

@@ -3,12 +3,12 @@
 const ProfileResult = require('./ProfileResult');
 // Ideally the API key below would be in a secret store
 // rather than an environment variable
-const baseUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=${process.env.GOOGLE_API_KEY}&url=';
+const baseUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=${process.env.GOOGLE_API_KEY}&url=`;
 const axios = require('axios');
 
 class ProfileService {
   profileAll(sites) {
-    let results = Promise.all(
+    const results = Promise.all(
       sites.map(this.profileSite),
     );
 
@@ -17,7 +17,7 @@ class ProfileService {
 
   async profileSite(site) {
     try {
-      let response = await axios.get(baseUrl + site.url);
+      const response = await axios.get(baseUrl + site.url);
 
       return new ProfileResult(
         site,
