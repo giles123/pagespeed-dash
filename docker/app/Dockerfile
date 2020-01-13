@@ -1,4 +1,4 @@
-FROM node:13
+FROM node:12-alpine
 
 RUN npm install
 
