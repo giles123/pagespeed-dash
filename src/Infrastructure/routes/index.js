@@ -1,11 +1,12 @@
 'use strict';
 
+const path = require('path');
 const routes = require('express').Router();
 const SiteController = require('../controllers/SiteController');
 const ProfileController = require('../controllers/ProfileController');
 const APIAuthMiddleware = require('../middleware/APIAuthMiddleware');
-const SiteRepository = require(process.cwd() + '/src/Domain/Site/SiteRepository');
-const ProfileService = require(process.cwd() + '/src/Domain/Profile/ProfileService');
+const SiteRepository = require(path.resolve('src/Domain/Site/SiteRepository'));
+const ProfileService = require(path.resolve('src/Domain/Profile/ProfileService'));
 
 const siteRepo = new SiteRepository();
 const siteController = new SiteController(siteRepo);
