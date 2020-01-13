@@ -7,10 +7,10 @@ const APIAuthMiddleware = require('../middleware/APIAuthMiddleware');
 const SiteRepository = require(process.cwd() + '/src/Domain/Site/SiteRepository');
 const ProfileService = require(process.cwd() + '/src/Domain/Profile/ProfileService');
 
-let siteRepo = new SiteRepository();
-let siteController = new SiteController(siteRepo);
-let profileController = new ProfileController(siteRepo, new ProfileService());
-let apiAuthMiddleware = new APIAuthMiddleware();
+const siteRepo = new SiteRepository();
+const siteController = new SiteController(siteRepo);
+const profileController = new ProfileController(siteRepo, new ProfileService());
+const apiAuthMiddleware = new APIAuthMiddleware();
 
 routes.all('*', apiAuthMiddleware.validateKey);
 
